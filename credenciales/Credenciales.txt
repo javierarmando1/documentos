@@ -7,3 +7,5 @@ user: javier_armando1@hotmail.com,javierarmando1
 password:291087Te
 
 fichero de crdenciales
+
+cambio remoto 1
