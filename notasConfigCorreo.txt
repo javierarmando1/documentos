@@ -43,6 +43,11 @@ Cambio remoto 4
 
 Cambio remoto 5
 
+Cambio remoto 6
+
+Cambio remoto 7
+
+Cambio remoto 8
 
 Cambio local 1
 
