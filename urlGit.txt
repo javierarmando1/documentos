@@ -3,33 +3,3 @@ https://www.adictosaltrabajo.com/2011/06/27/git-branch-bash/
 https://www.adictosaltrabajo.com/2010/07/12/git/
 https://www.neoguias.com/git/#Comandos_Basicos_de_Git
 
-Cambio remoto url 1
-
-Cambio remoto url 2
-
-Cambio remoto url 3
-
-Cambio remoto url 4
-
-Cambio remoto url 5
-
-Cambio remoto url 6
-
-Cambio remoto url 7
-
-Cambio remoto url 8
-
-Cambio remoto url 9
-
-Cambio remoto url 10
-
-
-Cambio local url 1
-
-Cambio local url 2
-
-Cambio local url 3
-
-Cambio local url 4
-
-Cambio local url 5
