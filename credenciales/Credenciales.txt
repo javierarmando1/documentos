@@ -1,11 +1,7 @@
-jboss
+jboss local
 user:admin
 password:admin123#
 
 github
 user: javier_armando1@hotmail.com,javierarmando1
 password:291087Te
-
-fichero de crdenciales
-
-cambio remoto 1
