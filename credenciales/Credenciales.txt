@@ -33,5 +33,5 @@ credenciales administrador del servidor jboss de desarrollo
 jboss
 Usr_jboss0
 
-clonar proyecto girt 
+clonar proyecto git 
 ssh://USR_GIT:U5R_G17@10.50.109.68/opt/GitRepo/CECO/CECO.git
