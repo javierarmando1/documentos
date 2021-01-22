@@ -5,3 +5,33 @@ password:admin123#
 github
 user: javier_armando1@hotmail.com,javierarmando1
 password:291087Te
+
+Desarrollo y Calidad
+10.50.109.68 y 10.50.109.69
+
+jboss
+T3mp0r@l
+
+su
+Temporal681
+
+
+Busca el proceso en linux
+ps -fea | grep -E "*standalone.*/home/jboss/jboss-eap-7.0/standalone/" | grep -v grep | awk 'BEGIN {FS=" "}; { print $2 }'
+
+matar el proceso para detener server jboss
+kill -9 [id]
+
+iniciar el servidor jboss pero si cierras consola matas el proceso de jboss
+./standalone.sh
+
+
+levantar jboss sin usar consola
+/bin/sh /home/jboss/jboss-eap-7.0/bin/standalone.sh > /dev/null 2>&1 &
+
+credenciales administrador del servidor jboss de desarrollo 
+jboss
+Usr_jboss0
+
+clonar proyecto girt 
+ssh://USR_GIT:U5R_G17@10.50.109.68/opt/GitRepo/CECO/CECO.git
