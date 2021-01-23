@@ -35,3 +35,8 @@ Usr_jboss0
 
 clonar proyecto git 
 ssh://USR_GIT:U5R_G17@10.50.109.68/opt/GitRepo/CECO/CECO.git
+
+asi funciona segun stackoverflow
+sshpass -p password git clone ssh://username@onboard.com/srv/git/repo
+otro mas
+$ git clone <username>@<hostname>:<repository>.git
