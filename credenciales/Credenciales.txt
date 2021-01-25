@@ -40,3 +40,10 @@ asi funciona segun stackoverflow
 sshpass -p password git clone ssh://username@onboard.com/srv/git/repo
 otro mas
 $ git clone <username>@<hostname>:<repository>.git
+
+Forma de clonar proyecto con smartgit
+Repository->clone
+Repository URL
+ssh://USR_GIT@10.50.109.68/opt/GitRepo/CECO/CECO.git
+password
+U5R_G17
