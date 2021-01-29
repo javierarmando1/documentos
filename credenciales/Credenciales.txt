@@ -1,3 +1,9 @@
+servidor ftp
+
+server:localhost
+port:14147
+password:admin
+
 jboss local
 user:admin
 password:admin123#
