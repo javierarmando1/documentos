@@ -36,5 +36,7 @@ folio correo
 primero commit
 y despues push
 
+otra vez repertir el proceso para verifcar el icono del proyecto principal
+
 
 
