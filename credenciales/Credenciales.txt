@@ -18,6 +18,8 @@ Desarrollo y Calidad
 jboss
 T3mp0r@l
 
+Iniciar sesion en la consola 
+Nota para matar el proceso y levantarlo de nuevo siempre se tiene que iniciar sesion en consola
 su
 Temporal681
 
