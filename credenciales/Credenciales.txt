@@ -15,6 +15,7 @@ password:291087Te
 Desarrollo y Calidad
 10.50.109.68 y 10.50.109.69
 
+credenciales para iniciar en el SFTP
 jboss
 T3mp0r@l
 
