@@ -3,8 +3,8 @@ extencio Sempo: 73721
 folio correo
 21459
 
-20:28:22‎ Bienvenido(a) JAVIER ARMANDO MONTAÑO VARGAS a soporte en línea, le atiende Ing. Raciel Gallegos.
-20:28:22‎ Esta sesión de Soporte, queda documentada con el incidente: REQ000000605280
+20:28:22‎ Bienvenido(a) JAVIER ARMANDO MONTAÑO VARGAS a soporte en línea, le atiende Ing. Raciel Gallegos.22222
+20:28:22‎ Esta sesión de Soporte, queda documentada con el incidente: REQ00000060528022222
 20:28:22‎ Conserve este folio para su seguimiento a futuro.
 20:28:33‎ Ing. Raciel Gallegos: Buenas noches, gracias por ingresar a Soporte en linea. ¿En que le puedo ayudar?
 20:28:47‎ JAVIER ARMANDO MONTAÑO VARGAS: Hola Raciel
