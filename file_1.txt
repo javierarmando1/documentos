@@ -1,10 +1,32 @@
+ VARGAS: mi tema no es relacionado con red inalámbrica, pero no se si me puede apoyar para configurar mi outlook en mi pc ?
+20:30:29‎ JAVIER ARMANDO MONTAÑO VARGAS: es que no encontre otro medio para comunicarme en el boton rojo
+20:32:34‎ Ing. Raciel Gallegos: nosotros somos boton rojo
+20:32:45‎ Ing. Raciel Gallegos: ahora que version es la que tiene de Outlook
+20:32:46‎ Ing. Raciel Gallegos: ?
+20:32:56‎ JAVIER ARMANDO MONTAÑO VARGAS: haaa ok
+20:33:13‎ JAVIER ARMANDO MONTAÑO VARGAS: Outlook 2016
+20:36:18‎ Ing. Raciel Gallegos: bien ahora se da el soporte
+20:36:26‎ Ing. Raciel Gallegos: por medio de la siguientes extensiones
+20:36:26‎ Ing. Raciel Gallegos:
+20:36:26‎ Ing. Raciel Gallegos:                     PROBLEMAS y CONFIGURACIONES DE CORREO ,WEBEX , ZOOM , SHAREFILE, DROPBOX ,TEAMS
+20:36:26‎ Ing. Raciel Gallegos:
+20:36:26‎ Ing. Raciel Gallegos:
+20:36:26‎ Ing. Raciel Gallegos:                         77615 OPCION 3
+20:36:26‎ Ing. Raciel Gallegos:
+20:36:26‎ Ing. Raciel Gallegos:
+20:36:26‎ Ing. Raciel Gallegos:                   SEGUNDO NIVEL .- 75230
+20:36:43‎ Ing. Raciel Gallegos: o por correo
+20:36:43‎ Ing. Raciel Gallegos: sopteccorreo@gruposalinas.com.mx
+20:37:27‎ JAVIER ARMANDO MONTAÑO VARGAS: ok, gracias
+20:37:41‎ JAVIER ARMANDO MONTAÑO VARGAS: me comunicare a esa extension
+20:40:15‎ Ing. Raciel Gallegos: si por favor
+20:55:22‎ La sesión de chat ha finalizado... Gracias por tu visita.
 
-## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
-spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=libreria
-spring.datasource.username=sa
-spring.datasource.password=prueba2020
-spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServer2012Dialect
+primero commit
+y despues push
 
-Cambios para  task8
+otra vez repertir el proceso para verifcar el icono del proyecto principal
+
+cambio en casa
+
+
