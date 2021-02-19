@@ -8,3 +8,12 @@ cambio rama1
 cambio rama1
 cambio rama1
 cambio rama1
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=libreria
+spring.datasource.username=sa
+spring.datasource.password=prueba2020
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServer2012Dialect
+
+Cambios para  task8
