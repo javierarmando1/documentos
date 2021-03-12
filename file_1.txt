@@ -1,5 +1,1 @@
 cambio
-cambio rama1
-Otro cambio rama 1 file 1
-cambio rama2 en file 1
-otro cambio rama2 en file 1
