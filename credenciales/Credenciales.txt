@@ -58,6 +58,7 @@ password
 U5R_G17
 
 credenciales para huawei https://e.huawei.com/
+User ID: javier_armando1
 javier.montano@elektra.com.mx
 291087Team#
 cuenta 2 https://auth.huaweicloud.com
