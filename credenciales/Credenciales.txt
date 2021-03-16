@@ -56,3 +56,12 @@ Repository URL
 ssh://USR_GIT@10.50.109.68/opt/GitRepo/CECO/CECO.git
 password
 U5R_G17
+
+credenciales para huawei https://e.huawei.com/
+javier.montano@elektra.com.mx
+291087Team#
+cuenta 2 https://auth.huaweicloud.com
+hwc32260547
+291087Team#
+
+https://reg.huaweicloud.com/
