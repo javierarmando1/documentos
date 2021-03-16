@@ -1,0 +1,1214 @@
+﻿swagger: '2.0'
+
+
+info:
+  version: "0.0.1"
+  title: API Plantillas CECO
+  description: |
+    API para operaciones relacionadas con Centros de Costo de Grupo Salinas.
+
+host: dev-api.bancoazteca.com.mx:8080
+
+basePath: /contabilidad/sistemas-informacion-gs/centros-costos/v1
+
+schemes:
+  - https
+
+produces:
+  - application/json
+  
+securityDefinitions:
+  Bearer:
+    description: >
+      Para acceder a la API se debe pasar un token válido en todas las consultas.
+      La siguiente sintaxis se debe utilizar en el encabezado 'Authorization' :
+        Bearer: 2zzLJmBAtTNIU8nF8e8XbmDvaNGs
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+paths:
+  /plantillas:
+    get:
+      description: >
+        Para obtener los centros de costo con plantillas.
+      tags: 
+        - Plantillas
+      produces:
+        - application/json
+      parameters:
+        - name: pagina
+          in: query
+          description: Identificador de la página a consultar
+          required: true
+          type: integer
+          default: 1
+
+      responses:
+        200:
+          description: Ok
+          schema: 
+            $ref: '#/definitions/respuestaPlantillas'
+          examples:
+            application/json: |-
+              {
+                "mensaje": "Operacion Exitosa.",
+                "folio":  22920190128140415938,
+                "resultado" : {
+                  "paginacion": {
+                    "totalCentrosCostos": 115000,
+                    "totalPaginas": 1000,
+                    "totalCentrosCostosPagina": 115,
+                    "paginaActual": 1
+                  },
+                  "centrosCosto" : [
+                    {
+                      "idConfiguracion": 1,
+                      "idCentroCosto": "550100",
+                      "descripcion": "Centro de Costos",
+                      "idCentroCostoPadre": "550099",
+                      "descripcionCentroCostoPadre": "Centro de Costos Padre",
+                      "idEstatus": 1,
+                      "estatus": "Activo",
+                      "idGrupo": 777702,
+                      "grupoEmpresarial": "ELEKTRA",
+                      "idNegocio": 113,
+                      "negocio": "Negocio",
+                      "idSubNegocio": 2,
+                      "subNegocio": "SUCURSALES BAZ CORPORATIVO ",
+                      "tipoCanal": "C",                      
+                      "idTipoGasto": 1,
+                      "tipoGasto" : "GUN",
+                      "responsable": {
+                          "id":38578,
+                          "nombre":"Genaro Cruz Zempoatecatl"
+                      },
+                      "direccion": {
+                          "idPais":1,
+                          "pais":"México",
+                          "idEstado": 4,
+                          "estado":"Ciudad de México",
+                          "idMunicipio": 15,
+                          "municipio":"Coyoacán",
+                          "idColonia": 142,
+                          "colonia":"Jardines del Pedregal",
+                          "calle":"Insurgentes Sur",
+                          "numeroExterior":"100",
+                          "numeroInterior":"B",
+                          "codigoPostal":"04580",
+                          "telefono":"5532042049",
+                          "zonificacion":{
+                              "latitud":"19.285408",
+                              "longitud":"-99.557506"
+                          }
+                      },
+                      "plantillas": [
+                        {
+                          "idPosicion": 5070061,
+                          "posicion" : "ASESOR ELEKTRA"
+                          "id": 937504,
+                          "nombre":"Genaro",
+                          "apellidoPaterno":"Zempoatecatl",
+                          "apellidoMaterno":"Cruz",
+                          "idUnidadOrganizativa": 166179,
+                          "unidadOrganizativa":"PROPECTIVA",
+                          "idFuncion": 39,
+                          "funcion":"Gerente",
+                          "idEntidad":"500",
+                          "empleadoInterno": true,
+                          "jefe":{
+                            "id":38538,
+                            "idPosicion":1945276
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+        400:
+          description: Entrada incorrecta
+          schema:
+            $ref: "#/definitions/error"
+          examples:
+            application/json: |-
+              {
+                "codigo": "400.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1000",
+                "mensaje": "Petición no válida, favor de validar su información",
+                "folio" : "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#400.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1000",
+                "detalles": [
+                  "Hacen falta parámetros"
+                ]
+              }
+        404:
+          description: No encontrado
+          schema:
+            $ref: "#/definitions/error"
+          examples:
+            application/json: |-
+              {
+                "codigo": "404.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1200",
+                "mensaje": "No se encontró información",
+                "folio" : "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#404.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1200",
+                "detalles": [
+                  "No se encontró información de plantillas"
+                ]
+              }
+        500:
+          description: Operacion Inesperada
+          schema:
+           $ref: "#/definitions/error"
+          examples:
+            application/json: |-
+              {
+                "codigo": "500.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.2000",
+                "mensaje": "Problemas al procesar su solicitud favor de contactar a su administrador",
+                "folio" : "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#500.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.2000",
+                "detalles": [
+                  "Error inesperado en la operación"
+                ]
+              }
+              
+      security:
+        - Bearer: []
+  /{idCentroCostos}:
+    get:
+      description: >
+        Para obtener la información general de los Centro de Costos del grupo salinas
+      tags: 
+        - Centro de Costos
+      produces:
+        - application/json
+      parameters:
+        - name: idCentroCostos
+          in: path
+          description: Id de Centro de Costos a buscar
+          required: true
+          type: integer
+          default: 1
+        - name: idGrupoEmpresarial
+          in: query
+          description: Id del Grupo empresarial al que pertenece el Centro de Costos
+          required: false
+          type: integer
+          default: 77771
+
+      responses:
+        200:
+          description: Ok
+          schema: 
+            $ref: '#/definitions/respuestaCentroCostos'
+          examples:
+            application/json: |-
+              {
+                "mensaje": "Operacion Exitosa.",
+                "folio":  22920190128140415938,
+                "resultado" : {                  
+                  "centrosCosto" : [
+                    {
+                      "idConfiguracion": 70,
+                      "idCentroCostos": 550100,
+                      "nombre": "BA MEGA LA LUNA",
+                      "serviciosPagadosProvedoresInternos": true,
+                      "presupuesto": true,
+                      "plantilla": true,
+                      "sociedadCorporativa": "GSAL",
+                      "moneda": "MXN",
+                      "virtual": false,
+                      "entidad" : {
+                        "id": 127,
+                        "nombre": "BANCO AZTECA"
+                      },
+                      "division":{
+                        "id": 888802,
+                        "nombre": "DIVISIÓN FINANCIERA"
+                      },
+                      "grupoEmpresarial":{
+                        "id": 777701,
+                        "nombre": "GRUPO ELEKTRA"
+                      },
+                      "canal": {
+                        "id": 1,
+                        "descripcion": "ELEKTRA",
+                        "tipo": {
+                          "tipo": "P",
+                          "descripcion": "PROPIOS"
+                        }
+                      },
+                      "estatus": {
+                          "id": 1,
+                          "descripcion": "ACTIVO"
+                      },
+                      "tipo": {
+                          "id": 1,
+                          "descripcion": "OPERATIVO"
+                      },
+                      "responsable": {
+                          "numeroEmpleado": 566887,
+                          "nombre": "Oscar Zempoatecatl Luqueño",
+                          "alterno": {
+                              "numeroEmpleado": 36951,
+                              "nombre": "Genaro Gonzalez Tapia"
+                          },
+                          "administrativo": {
+                              "numeroEmpleado": 38578,
+                              "nombre": "Pedro Natán Morales Henández"
+                          }
+                      },
+                      "direccion": {
+                          "codigoPostal": "4730",
+                          "calle": "Calzada de Tlalpan",
+                          "calleUno": "",
+                          "calleDos": "",
+                          "numeroExterior": "4353",
+                          "numeroInterior": "0",
+                          "zona": "URBANA",
+                          "zonificacion": {
+                              "latitud": "545852125",
+                              "longitud": "445450456"
+                          },
+                          "pais": {
+                              "id": 1,
+                              "nombre": "MEXICO"
+                          },
+                          "estado": {
+                              "id": 9,
+                              "nombre": "Ciudad de México"
+                          },
+                          "municipio": {
+                              "id": 3,
+                              "nombre": "Coyoacan"
+                          },
+                          "ciudad": {
+                              "id": 4,
+                              "nombre": "Ciudad de México"
+                          },
+                          "asentamiento": {
+                              "tipo": "COLONIA",
+                              "nombre": "BOSQUES DE TLAMEYA"
+                          }
+                      },
+                      "parametros": [
+                          {
+                              "id": 214,
+                              "catalogo": "VICEPRESIDENCIA",
+                              "idValor": "302",
+                              "valor": "BANCO AZTECA"
+                          }
+                      ],
+                      "sociedades": [
+                          {
+                              "idGrupo": 2,
+                              "nombreGrupo": "Geografia BAZ México",
+                              "nombre": "0013",
+                              "asociadas": "ELMEX SUPERIOR",
+                              "entidadControlPresupuestal": {
+                                "clave": "EKFM",
+                                "nombre": "ELEKTRA"
+                              },
+                              "estatus": "Enviado",
+                              "envio": "1"
+                          }
+                      ],
+                      "fechasMovimientos": [
+                          {
+                              "fecha": "29/10/2002",
+                              "estatus": {
+                                  "id": 1,
+                                  "descripcion": "ACTIVO"
+                              }
+                          }
+                      ],
+                      "impuestos": [
+                          {
+                              "id": 1,
+                              "nombre": "IVA",
+                              "valor": "0.16"
+                          }
+                      ],
+                      "estructura": {
+                        "padres":[
+                          {
+                            "idConfiguracion": 529,
+                            "numeroCentroCostos": 238162,
+                            "nombreCentroCostos": "Regional Benito Juarez 2",
+                            "estructura": {
+                                "id": 1,
+                                "nombre": "Operativa EKT",
+                                "tipo": "Operativa"
+                            }
+                          }
+                        ],
+                        "hijos":[
+                          {
+                            "idConfiguracion": 70,
+                            "numeroCentroCostos": 380100,
+                            "nombreCentroCostos": "TIENDA ELEKTRA",
+                            "estructura": {
+                                "id": 22,
+                                "nombre": "INFORMACIÓN EJECUTIVA GEKT",
+                                "tipo": "PRESENTACIÓN"
+                            }
+                          }
+                        ]
+                      },
+                      "plantillas": [
+                        {
+                            "idPosicion": 5070061,
+                            "posicion": "ASESOR ELEKTRA",
+                            "id": 937504,
+                            "nombre": "Genaro",
+                            "apellidoPaterno": "Zempoatecatl",
+                            "apellidoMaterno": "Cruz",
+                            "idUnidadOrganizativa": 166179,
+                            "unidadOrganizativa": "PROPECTIVA",
+                            "idFuncion": 39,
+                            "funcion": "Gerente",
+                            "idEntidad": "500",
+                            "empleadoInterno": true,
+                            "jefe": {
+                                "id": 38538,
+                                "idPosicion": 1945276
+                            }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+        400:
+          description: Entrada incorrecta
+          schema:
+            $ref: "#/definitions/error"
+          examples:
+            application/json: |-
+              {
+                "codigo": "400.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1000",
+                "mensaje": "Petición no válida, favor de validar su información",
+                "folio" : "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#400.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1000",
+                "detalles": [
+                  "Hacen falta parámetros"
+                ]
+              }
+        404:
+          description: No encontrado
+          schema:
+            $ref: "#/definitions/error"
+          examples:
+            application/json: |-
+              {
+                "codigo": "404.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1200",
+                "mensaje": "No se encontró información",
+                "folio" : "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#404.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1200",
+                "detalles": [
+                  "No se encontró información de centro de costos"
+                ]
+              }
+        500:
+          description: Operacion Inesperada
+          schema:
+           $ref: "#/definitions/error"
+          examples:
+            application/json: |-
+              {
+                "codigo": "500.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.2000",
+                "mensaje": "Problemas al procesar su solicitud favor de contactar a su administrador",
+                "folio" : "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#500.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.2000",
+                "detalles": [
+                  "Error inesperado en la operación"
+                ]
+              }
+              
+      security:
+        - Bearer: []
+  
+definitions:
+  respuestaPlantillas:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripción de la operación
+        example: "Operacion Exitosa"
+      folio:
+        type: string
+        description: Folio de la operación
+        example: "22920190128140415938"
+      resultado:
+        type: object
+        required: 
+          - paginacion
+        properties:
+          paginacion:
+            type: object
+            required: 
+              - totalResultados
+              - totalPaginas
+              - resultadosPagina
+              - paginaActual
+            properties:
+              totalCentrosCostos:
+                type: integer
+                format: long
+                description: Número total de centros de costos
+                example: 115000
+              totalPaginas:
+                type: integer
+                description: Número total de páginas
+                example: 1000
+              totalCentrosCostosPagina:
+                type: integer
+                description: Número total de centros de costos por página
+                example: 115
+              paginaActual:
+                type: integer
+                description: Número de página actual
+                example: 1
+          centrosCosto:
+            type: array
+            items:
+              properties:
+                idConfiguracion:
+                  type: integer
+                  description: 'Id de la configuración del centro de costo'
+                  example: 1
+                idCentroCosto:
+                  type: string
+                  description: Número de centro de costos
+                  example: "550100"
+                descripcion:
+                  type: string
+                  description: Nombre del centro de costos
+                  example: "Centro de Costos"
+                idCentroCostoPadre:
+                  type: string
+                  description: Número del centro de costos padre
+                  example: "550099"
+                descripcionCentroCostoPadre:
+                  type: string
+                  description: Nombre del centro de costos padre
+                  example: "Centro de Costos Padre"
+                idEstatus:
+                  type: integer
+                  description: Id del status
+                  example: 1
+                estatus:
+                  type: string
+                  description: Descripción del estatus
+                  example: "Activo"                
+                idGrupo:
+                  type: integer
+                  description: Id del grupo empresarial
+                  example: 777702
+                grupoEmpresarial:
+                  type: string
+                  description: Nombre del grupo empresarial
+                  example: "ELEKTRA"
+                idNegocio:
+                  type: integer
+                  description: Id del negocio
+                  example: 113
+                negocio:
+                  type: string
+                  description: Descripción del negocio
+                  example: "Negocio"
+                idSubNegocio:
+                  type: integer
+                  description: Id del sub negocio
+                  example: 2
+                subNegocio:
+                  type: string
+                  description: Descripción del sub negocio
+                  example: "SUCURSALES BAZ CORPORATIVO"
+                tipoCanal:
+                  type: string
+                  description: Tipo de formato del Centro de Costos
+                  example: "C"                
+                idTipoGasto:
+                  type: integer
+                  description: "Id del valor asignado al parámetro de Gasto de Unidad de Negocio o Corporativo"
+                  example: 1
+                tipoGasto:
+                  type: string
+                  description: "Nombre del valor asignado al parámetro de Gasto de Unidad de Negocio o Corporativo" 
+                  example: "GUN"
+                responsable:
+                  type: object
+                  properties:
+                    id:
+                      type : integer
+                      description: Número de empleado responsable
+                      example: 38578                    
+                    nombre:
+                      type : string
+                      description: Nombre completo del empleado responsable
+                      example: "Genaro Cruz Zempoatecatl"
+                direccion:
+                  type: object
+                  properties:
+                    idPais:
+                      type: integer
+                      description: Id del país
+                      example: 1
+                    pais:
+                      type: string
+                      description: Nombre del país
+                      example: "México"
+                    idEstado:
+                      type: integer
+                      description: Id del estado
+                      example: 4
+                    estado:
+                      type: string
+                      description: Nombre del estado
+                      example: "Ciudad de México"
+                    idMunicipio:
+                      type: integer
+                      description: Id del municipio
+                      example: 15
+                    municipio:
+                      type: string
+                      description: Nombre del municipio
+                      example: "Coyoacán"
+                    idColonia:
+                      type: integer
+                      description: Id de la colonia
+                      example: 142
+                    colonia:
+                      type: string
+                      description: Nombre de la colonia
+                      example: "Jardines del Pedregal"
+                    calle:
+                      type: string
+                      description: Nombre de la calle
+                      example: "Insurgentes Sur"
+                    numeroExterior:
+                      type: string
+                      description: Número exterior
+                      example: "100"
+                    numeroInterior:
+                      type: string
+                      description: Número interior
+                      example: "B"
+                    codigoPostal:
+                      type: string
+                      description: Código postal
+                      example: "04580"
+                    telefono:
+                      type: string
+                      description: Teléfono
+                      example: "5532042049"
+                    zonificacion:
+                      type: object
+                      properties:
+                        latitud:
+                          type: string
+                          description: Latitud de la geolocalización del centro de costos
+                          example: "19.285408"
+                        longitud:
+                          type: string
+                          description: Longitud de la geolocalización del centro de costos
+                          example: "-99.557506"
+                plantillas:
+                  type: array
+                  items:
+                    properties:
+                      idPosicion:
+                        type: integer
+                        description: Id posición
+                        example: 1945258
+                      posicion:
+                        type: string
+                        description: Muestra la descripcion de la posición del empleado
+                        example: "ASESOR ELEKTRA"
+                      id:
+                        type: integer
+                        description: Número del empleado
+                        example: 937504
+                      nombre:
+                        type: string
+                        description: Nombre del empleado
+                        example: "Genaro"
+                      apellidoPaterno:
+                        type: string
+                        description: Apellido paterno del empleado
+                        example: "Zempoatecatl"
+                      apellidoMaterno:
+                        type: string
+                        description: Apellido materno del empleado
+                        example: "Cruz"
+                      idUnidadOrganizativa:
+                        type: integer
+                        description: Id de la unidad organizativa
+                        example: 166179
+                      unidadOrganizativa:
+                        type: string
+                        description: Descripción de la unidad organizativa
+                        example: "PROPECTIVA"
+                      idFuncion:
+                        type: integer
+                        description: Id de la función
+                        example: 39
+                      función:
+                        type: string
+                        description: Descripción de la función
+                        example: "Gerente"
+                      idEntidad:
+                        type: string
+                        description: Id de la entidad
+                        example: "500"
+                      empleadoInterno: 
+                        type: boolean
+                        description: Define si el empleado es un empleado interno o externo
+                        example: true
+                      jefe:
+                        type: object
+                        properties:
+                          id:
+                            type : integer
+                            description: Número de empleado jefe
+                            example: 38578
+                          idPosicion:
+                            type: integer
+                            description: Id posición
+                            example: 1945258  
+
+  respuestaCentroCostos:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripción de la operación
+        example: "Operacion Exitosa"
+      folio:
+        type: string
+        description: Folio de la operación
+        example: "22920190128140415938"
+      resultado:
+        type: object      
+        properties:
+          centrosCosto:
+            type: array
+            items:
+              properties:
+                idConfiguracion:
+                  type: integer
+                  description: 'Configuración del centro de costos'
+                  example: 70
+                idCentroCostos:
+                  type: integer
+                  description: 'Número de centro de costos'
+                  example: 550100
+                nombre:
+                  type: string
+                  description: 'Nombre del centro de costos'
+                  example: "BA MEGA LA LUNA"
+                serviciosPagadosProvedoresInternos:
+                  type: boolean
+                  description: 'Muestra si el centro de costos cuenta con servicios pagados por proveedores internos'
+                  example: true
+                presupuesto:
+                  type: boolean
+                  description: 'Muestra si el centro de costos cuenta con presupuesto'
+                  example: true
+                plantilla:
+                  type: boolean
+                  description: 'Muestra si el centro de costos cuenta con plantilla'
+                  example: true
+                sociedadCorporativa:
+                  type: string
+                  description: 'Siglas del grupo empresarial para SAP'
+                  example: "GSAL"
+                moneda:
+                  type: string
+                  description: 'Clave de la moneda asociada al centro de costos'
+                  example: "MXN"
+                virtual:
+                  type: boolean
+                  description: 'Define si es un centro de costos virtual o real'
+                  example: false
+                entidad:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: 'Id de la entidad a la que pertenece el centro de costos'
+                      example: 127
+                    nombre:
+                      type: string
+                      description: 'Nombre de la entidad a la que pertenece el centro de costos'
+                      example: "BANCO AZTECA"
+                division: 
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: 'Id de la division a la que pertenece el centro de costos'
+                      example: 888802
+                    nombre:
+                      type: string
+                      description: 'Nombre de la division a la que pertenece el centro de costos'
+                      example: "DIVISIÓN FINANCIERA"
+                grupoEmpresarial:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: 'Id del grupo empresarial'
+                      example: 777701
+                    nombre:
+                      type: string
+                      description: 'Nombre del grupo empresarial'
+                      example: "GRUPO ELEKTRA"
+                canal:
+                  type: object
+                  properties:
+                    id: 
+                      type: integer
+                      description: 'Id del canal'
+                      example: 1
+                    descripcion: 
+                      type: string
+                      description: 'Descripcion del canal'
+                      example: "ELEKTRA"
+                    tipo:
+                      type: object
+                      properties:
+                        tipo: 
+                          type: string
+                          description: 'Tipo del tipo de canal'
+                          example: "P"
+                        descripcion: 
+                          type: string
+                          description: 'Descripción del tipo de canal'
+                          example: "PROPIOS"
+                estatus:
+                  type: object
+                  properties:
+                    id: 
+                      type: integer
+                      description: 'Id del estatus en el que se encuentra el centro de costos'
+                      example: 1
+                    descripcion: 
+                      type: string
+                      description: 'Descripcion del estatus'
+                      example: "ACTIVO"
+                tipo:
+                  type: object
+                  properties:
+                    id: 
+                      type: integer
+                      description: 'Id de tipo del centro de costos'
+                      example: 1
+                    descripcion: 
+                      type: string
+                      description: 'Descripción del tipo de centro'
+                      example: "OPERATIVO"
+                responsable:
+                  type: object
+                  properties:
+                    numeroEmpleado: 
+                      type: integer
+                      description: 'Número de empleado del responsable'
+                      example: 566887
+                    nombre: 
+                      type: string
+                      description: 'Nombre del empleado responsable'
+                      example: "Oscar Zempoatecatl Luqueño"
+                    alterno:
+                      type: object
+                      properties:
+                        numeroEmpleado: 
+                          type: integer
+                          description: 'Número de empleado del responsable alterno'
+                          example: 36951
+                        nombre: 
+                          type: string
+                          description: 'Nombre del empleado responsable alterno'
+                          example: "Genaro Gonzalez Tapia"
+                    administrativo:
+                      type: object
+                      properties:
+                        numeroEmpleado: 
+                          type: integer
+                          description: 'Número de empleado del responsable administrativo'
+                          example: 38578
+                        nombre: 
+                          type: string
+                          description: 'Nombre del empleado responsable administrativo'
+                          example: "Pedro Natán Morales Henández"
+                direccion:
+                  type: object
+                  properties:
+                    codigoPostal:
+                      type: string
+                      description: 'Código postal'
+                      example: "4730"
+                    calle:
+                      type: string
+                      description: 'Calle en la que está ubicado el centro de costos'
+                      example: "Calzada de Tlalpan"
+                    calleUno:
+                      type: string
+                      description: 'Referencia uno de la ubicación del centro de costos'
+                      example: "Calzada de Tlalpan"
+                    calleDos:
+                      type: string
+                      description: 'Referencia dos de la ubicación del centro de costos'
+                      example: "Calzada de Tlalpan"
+                    numeroExterior:
+                      type: string
+                      description: 'Número exterior de la ubicación del centro de costos'
+                      example: "4353"
+                    numeroInterior:
+                      type: string
+                      description: 'Número interior de la ubicación del centro de costos'
+                      example: "0"
+                    zona:
+                      type: string
+                      description: 'Zoná de la dirección'
+                      example: "URBANA"
+                    zonificacion:
+                      type: object
+                      properties:
+                        latitud:
+                          type: string
+                          description: 'Latitud de la geolocalización del centro de costos'
+                          example: "545852125"
+                        longitud:
+                          type: string
+                          description: 'Longitud de la geolocalización del centro de costos'
+                          example: "445450456"
+                    pais:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: 'Id del país'
+                          example: 1,
+                        nombre:
+                          type: string
+                          description: 'Nombre del país'
+                          example: "MEXICO"
+                    estado:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: 'Id del estado'
+                          example: 9,
+                        nombre:
+                          type: string 
+                          description: 'Nombre del estado'
+                          example: "Ciudad de México"
+                    municipio:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: 'Id del municipio'
+                          example: 3,
+                        nombre:
+                          type: string
+                          description: 'Nombre del municipio'
+                          example: "Coyoacan"
+                    ciudad:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: 'Id de la ciudad'
+                          example: 4,
+                        nombre:
+                          type: string 
+                          description: 'Nombre de la ciudad'
+                          example: "Ciudad de México"
+                    asentamiento:
+                      type: object
+                      properties:
+                        tipo:
+                          type: string
+                          description: 'Tipo del asentamiento'
+                          example: "COLONIA"
+                        nombre:
+                          type: string
+                          description: 'Nombre del asentamiento'
+                          example: "BOSQUES DE TLAMEYA"
+                parametros:
+                  type: array
+                  items:
+                    properties:
+                      id:
+                        type: integer
+                        description: 'Id del parámetro'
+                        example: 214
+                      catalogo:
+                        type: string
+                        description: 'Catálogo del parámetro'
+                        example: "VICEPRESIDENCIA"
+                      idValor:
+                        type: string
+                        description: 'Valor del parámetro'
+                        example: "302"
+                      valor:
+                        type: string
+                        description: 'Tipo de parámetro'
+                        example: "BANCO AZTECA"
+                sociedades:
+                  type: array
+                  items:
+                    properties:
+                      idGrupo:
+                        type: integer
+                        description: 'Id del grupo de sociedades al que pertenece la sociedad'
+                        example: 2
+                      nombreGrupo:
+                        type: string
+                        description: 'Nombre del grupo al que pertenece la sociedad'
+                        example: "Geografia BAZ México"
+                      nombre:
+                        type: string
+                        description: 'Nombre de la sociedad'
+                        example: "0013"
+                      asociadas:
+                        type: string
+                        description: 'Sociedades asociadas'
+                        example: "ELMEX SUPERIOR"
+                      entidadControlPresupuestal:
+                        type: object
+                        properties: 
+                          clave:
+                            type: string
+                            description: 'Entidad CP de la sociedad'
+                            example: "EKFM"
+                          nombre:
+                            type: string
+                            description: 'Entidad CP de la sociedad'
+                            example: "ELEKTRA"
+                      estatus:
+                        type: string
+                        description: 'Estatus de la sociedad'
+                        example: "Enviado"
+                      envio:
+                        type: string
+                        description: 'Estatus del envio a SAP'
+                        example: "1"
+                fechasMovimientos:
+                  type: array
+                  items:
+                    properties:
+                      fecha:
+                        type:  string
+                        description: 'Fecha en que se llevó a cabo un cambio de estatus'
+                        example: "29/10/2002"
+                      estatus:
+                        type: object
+                        properties: 
+                          id:
+                            type: integer
+                            description: 'Id del estatus'
+                            example: 1
+                          descripcion:
+                            type: string 
+                            description: 'Descripción del estatus'
+                            example: "ACTIVO"
+                impuestos:
+                  type: array
+                  items:
+                    properties:
+                      id:
+                        type: integer
+                        description: 'Id del impuesto'
+                        example: 1
+                      nombre:
+                        type: string
+                        description: 'Nombre del impuesto'
+                        example: "IVA"
+                      valor:
+                        type: number
+                        description: 'Valor del impuesto'
+                        example: 0.16
+                estructura:
+                  type: object
+                  properties:
+                    padres:
+                      type: array
+                      items:
+                        properties:
+                          idConfiguracion:
+                            type: integer
+                            description: 'Id configuración del centro de costos padre'
+                            example: 529
+                          numeroCentroCostos: 
+                            type: integer
+                            description: 'Número del centro de costos padre'
+                            example: 238162
+                          nombreCentroCostos: 
+                            type: string
+                            description: 'Nómbre del centro de costos padre'
+                            example: "Regional Benito Juarez 2"
+                          estructura:
+                            type: object
+                            properties:
+                              id: 
+                                type: integer
+                                description: 'Id de la estructura del centro de costos padre'
+                                example: 1
+                              nombre: 
+                                type: string
+                                description: 'Nombre de la estructura del centro de costos padre'
+                                example: "Operativa EKT"
+                              tipo: 
+                                type: string
+                                description: 'Tipo de la estructura del centro de costos padre'
+                                example: "Operativa"
+                    hijos:
+                      type: array
+                      items:
+                        properties:
+                          idConfiguracion:
+                            type: integer
+                            description: 'Id configuración del hijo'
+                            example: 70
+                          numeroCentroCostos:
+                            type: integer
+                            description: 'Número del centro de costos hijo'
+                            example: 380100
+                          nombreCentroCostos:
+                            type: string
+                            description: 'Nómbre del centro de costos hijo'
+                            example: "TIENDA ELEKTRA"   
+                          estructura:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                description: 'Id de la estructura del centro de costos hijo'
+                                example: 22
+                              nombre:
+                                type: string
+                                description: 'Nombre de la estructura del centro de costos hijo'
+                                example: "INFORMACIÓN EJECUTIVA GEKT"
+                              tipo:
+                                type: string
+                                description: 'Tipo de estructura del centro de costos hijo'
+                                example: "PRESENTACIÓN"
+                plantillas:
+                 type: array
+                 items:
+                  properties:
+                   idPosicion:
+                     type: integer
+                     description: Id posición
+                     example: 1945258
+                   posicion:
+                     type: string
+                     description: Muestra la descripcion de la posición del empleado
+                     example: "ASESOR ELEKTRA"
+                   id:
+                     type: integer
+                     description: Número del empleado
+                     example: 937504
+                   nombre:
+                     type: string
+                     description: Nombre del empleado
+                     example: "Genaro"
+                   apellidoPaterno:
+                     type: string
+                     description: Apellido paterno del empleado
+                     example: "Zempoatecatl"
+                   apellidoMaterno:
+                     type: string
+                     description: Apellido materno del empleado
+                     example: "Cruz"
+                   idUnidadOrganizativa:
+                     type: integer
+                     description: Id de la unidad organizativa
+                     example: 166179
+                   unidadOrganizativa:
+                     type: string
+                     description: Descripción de la unidad organizativa
+                     example: "PROPECTIVA"
+                   idFuncion:
+                     type: integer
+                     description: Id de la función
+                     example: 39
+                   función:
+                     type: string
+                     description: Descripción de la función
+                     example: "Gerente"
+                   idEntidad:
+                     type: string
+                     description: Id de la entidad
+                     example: "500"
+                   empleadoInterno: 
+                     type: boolean
+                     description: Define si el empleado es un empleado interno o externo
+                     example: true
+                   jefe:
+                     type: object
+                     properties:
+                       id:
+                         type : integer
+                         description: Número de empleado jefe
+                         example: 38578
+                       idPosicion:
+                         type: integer
+                         description: Id posición
+                         example: 1945258  
+
+  error:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Parámetros no válidos por favor valide su información"
+      folio: 
+        type: string
+        description: Número de folio de la operación
+        example: "22920181120162829642"
+      info:
+        type: string
+        description: Rutas de ayuda para atender el error
+        example: "https://baz-developer.bancoazteca.com.mx/errors#400.Contabilidad-Sistemas-Informacion-GS-Centros-Costos.1000"
+      detalles:
+        type: array
+        items:
+          type: string
+          example: "No fue posible procesa la información enviada en su solicitud. Verifique por favor"
+  
+  summary:
+    type: object
+    properties: 
+      api-name:
+        type: string
+        description: API Plantillas CECO
+        example: contabilidad-sistemas-informacion-gs-centros-costos-v1
+      plantillas-get:
+        type: object
+        properties:
+          displayName: 
+            type: string
+            description: Consultar información referente a los centros de costos con plantilla
+            example: "Consultar todos los centros de costos y sus plantillas"
+      idCentroCostos-get:
+        type: object
+        properties:
+          displayName: 
+            type: string
+            description: Consultar información general de un centro de costos
+            example: "Consultar la información de un centro de costos"
