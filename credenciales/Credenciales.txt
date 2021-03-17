@@ -65,6 +65,11 @@ cuenta 2 https://auth.huaweicloud.com
 hwc32260547
 291087Team#
 
+ECS
+Administrator
+291087Team#
+
+
 https://reg.huaweicloud.com/
 
 
