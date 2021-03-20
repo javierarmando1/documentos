@@ -69,6 +69,10 @@ ECS
 Administrator
 291087Team#
 
+base contra
+root
+291087Team#
+
 
 https://reg.huaweicloud.com/
 
