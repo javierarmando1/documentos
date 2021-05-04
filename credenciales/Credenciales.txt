@@ -86,3 +86,4 @@ javier.montano@elektra.com.mx
 291087Team#
 
 grant execute on  PACCMISMASNUEVAS to USRINFCECOPORTGS;
+789262@onuriscp.com
