@@ -89,4 +89,8 @@ grant execute on  PACCMISMASNUEVAS to USRINFCECOPORTGS;
 789262@onuriscp.com
 onuriscp\789262
 
+cuenta trello
+usuario:javier.montano@elektra.com.mx
+password:291087Team#
+
 
