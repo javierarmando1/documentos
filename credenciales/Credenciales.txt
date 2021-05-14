@@ -94,3 +94,6 @@ usuario:javier.montano@elektra.com.mx
 password:291087Team#
 
 
+ceco_web y modeloceco van con java 1.8 y la casilla comple on save no se selecciona
+moduloclientececo_web va con java 1.8 y la casilla comple on save si se selecciona
+
