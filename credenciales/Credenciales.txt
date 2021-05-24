@@ -93,6 +93,11 @@ cuenta trello
 usuario:javier.montano@elektra.com.mx
 password:291087Team#
 
+ver el log en tiempo real
+
+sudo tail -f /home/jboss/jboss-eap-7.0/standalone/log/Utils-java-1.4.log
+sudo tail -f /home/jboss/jboss-eap-7.0/standalone/log/Utils-java-1.4.log.2021-05-23
+sudo tail -f /home/jboss/jboss-eap-7.0/standalone/log/Utils-java-1.4.log.2021-05-21
 
 ceco_web y modeloceco van con java 1.8 y la casilla comple on save no se selecciona
 moduloclientececo_web va con java 1.8 y la casilla comple on save si se selecciona
