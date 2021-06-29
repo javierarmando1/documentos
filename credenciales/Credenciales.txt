@@ -4,7 +4,11 @@ server:localhost
 port:14147
 password:admin
 
-jboss local
+jboss local 7.3
+user:admin
+password:admin123#
+
+jboss local 6.4
 user:admin
 password:admin123#
 
